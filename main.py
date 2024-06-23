@@ -17,15 +17,23 @@ for index, row in df.iterrows():
     pdf.set_font(family="Times", style="B", size=24)
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=12, txt=topic, align="L", ln=1)
-    pdf.line(10, 21, 200, 21)
+    for i in range(20, 298, 10):
+        pdf.line(10, i, 200, i)
 
     # Setting footer for first/main page
-    pdf.ln(260)
+    pdf.ln(265)
     pdf.set_font(family="Times", style="I", size=8)
     pdf.set_text_color(180, 180, 180)
-    pdf.cell(w=0, h=12, txt=str(index + 1), align="R")
+    pdf.cell(w=0, h=12, txt=topic, align="R")
 
+    # Adding extra pages as required
     for i in range(pages - 1):
         pdf.add_page()
+        pdf.ln(277)
+        pdf.set_font(family="Times", style="I", size=8)
+        pdf.set_text_color(180, 180, 180)
+        pdf.cell(w=0, h=12, txt=topic, align="R")
+        for i in range(20, 298, 10):
+            pdf.line(10, i, 200, i)
 
 pdf.output("output.pdf")
