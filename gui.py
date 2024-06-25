@@ -11,8 +11,9 @@ input_box = genpdf.InputText(tooltip="Enter the topic", key="heading")
 label3 = genpdf.Text("How many pages do you think it requires?")
 input_box2 = genpdf.InputText(tooltip="Enter number of pages", key="number_of_pages")
 
-save_as_button = genpdf.SaveAs("Choose Name of the Notebook", target="file_path", file_types=(("PDF Files", "*.pdf"),), key="save_as")
+# Creating file path and save_as feature for generating pdf and storing it where we want
 file_path_input = genpdf.FolderBrowse("Choose Path of the Notebook", key="file_path")
+save_as_button = genpdf.SaveAs("Choose Name of the Notebook", target="file_path", file_types=(("PDF Files", "*.pdf"),), key="save_as")
 generate_button = genpdf.Button(size=5, image_source="pdf-icon.png", image_size=(1, 1),
                                 mouseover_colors="LightBlue2",
                                 key="GenPDF")
